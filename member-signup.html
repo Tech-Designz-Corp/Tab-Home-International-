@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Become a Member | Tabitha's Home International, Inc.</title>
+  <meta name="description" content="Join the mission of Tabitha's Home International, Inc. as a member, volunteer, donor, ministry partner, community partner, or prayer partner." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="assets/Logo.png" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <span class="watercolor watercolor--a" style="top:-140px; left:-80px;"></span>
+      <span class="watercolor watercolor--b" style="bottom:-120px; right:-60px;"></span>
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Member Sign-Up</p>
+        <h1>Become a Member of Tabitha's Home International, Inc.</h1>
+        <p>Join us in serving women and children through faith, compassion, and community support. As a member, you become part of a God-focused mission dedicated to restoration, hope, and transformation.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width:920px">
+        <div class="card reveal" style="padding:clamp(1.6rem,4vw,2.8rem)">
+          <form class="form" data-form="membership" novalidate>
+            <div>
+              <span class="eyebrow">Choose Your Membership</span>
+              <h2 class="section-title" style="font-size:1.5rem; text-align:left; margin:.4rem 0 1rem">Membership Type</h2>
+              <div class="member-types">
+                <label class="member-type"><input type="radio" name="membershipType" value="General Member" required /> <span><strong>General Member</strong><small>Join the mission &amp; stay connected</small></span></label>
+                <label class="member-type"><input type="radio" name="membershipType" value="Volunteer Member" /> <span><strong>Volunteer Member</strong><small>Serve with your time &amp; gifts</small></span></label>
+                <label class="member-type"><input type="radio" name="membershipType" value="Donor Member" /> <span><strong>Donor Member</strong><small>Give to sustain the work</small></span></label>
+                <label class="member-type"><input type="radio" name="membershipType" value="Ministry Partner" /> <span><strong>Ministry Partner</strong><small>Partner in faith &amp; service</small></span></label>
+                <label class="member-type"><input type="radio" name="membershipType" value="Community Partner" /> <span><strong>Community Partner</strong><small>Collaborate for impact</small></span></label>
+                <label class="member-type"><input type="radio" name="membershipType" value="Prayer Partner" /> <span><strong>Prayer Partner</strong><small>Cover the mission in prayer</small></span></label>
+              </div>
+            </div>
+
+            <hr style="border:none; border-top:1px solid var(--sky-200); margin:.6rem 0" />
+
+            <div class="form-row form-row--2">
+              <div class="field"><label for="mName">Full Name <span class="req">*</span></label><input class="input" id="mName" name="fullName" type="text" required placeholder="Your full name" /></div>
+              <div class="field"><label for="mEmail">Email Address <span class="req">*</span></label><input class="input" id="mEmail" name="email" type="email" required placeholder="you@email.com" /></div>
+            </div>
+            <div class="form-row form-row--2">
+              <div class="field"><label for="mPhone">Phone Number</label><input class="input" id="mPhone" name="phone" type="tel" placeholder="(000) 000-0000" /></div>
+              <div class="field"><label for="mAddress">Address</label><input class="input" id="mAddress" name="address" type="text" placeholder="Street address" /></div>
+            </div>
+            <div class="form-row form-row--3">
+              <div class="field"><label for="mCity">City</label><input class="input" id="mCity" name="city" type="text" placeholder="City" /></div>
+              <div class="field"><label for="mState">State / Region</label><input class="input" id="mState" name="state" type="text" placeholder="State / Region" /></div>
+              <div class="field"><label for="mCountry">Country</label><input class="input" id="mCountry" name="country" type="text" placeholder="Country" /></div>
+            </div>
+
+            <div class="field">
+              <label>Area of Interest</label>
+              <div class="interest-grid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+                <label class="check check--chip"><input type="checkbox" name="interest" value="Volunteering" /> Volunteering</label>
+                <label class="check check--chip"><input type="checkbox" name="interest" value="Donations" /> Donations</label>
+                <label class="check check--chip"><input type="checkbox" name="interest" value="Prayer Support" /> Prayer Support</label>
+                <label class="check check--chip"><input type="checkbox" name="interest" value="Community Outreach" /> Community Outreach</label>
+                <label class="check check--chip"><input type="checkbox" name="interest" value="Events" /> Events</label>
+                <label class="check check--chip"><input type="checkbox" name="interest" value="Mentorship" /> Mentorship</label>
+                <label class="check check--chip"><input type="checkbox" name="interest" value="Children's Programs" /> Children's Programs</label>
+                <label class="check check--chip"><input type="checkbox" name="interest" value="Women's Support Services" /> Women's Support Services</label>
+                <label class="check check--chip"><input type="checkbox" name="interest" value="Administrative Support" /> Administrative Support</label>
+                <label class="check check--chip"><input type="checkbox" name="interest" value="Partnership Opportunities" /> Partnership Opportunities</label>
+              </div>
+            </div>
+
+            <div class="field"><label for="mChurch">Church / Organization Affiliation</label><input class="input" id="mChurch" name="affiliation" type="text" placeholder="If applicable" /></div>
+            <div class="field"><label for="mSupport">How would you like to support the mission?</label><textarea class="textarea" id="mSupport" name="support" placeholder="Share how you'd like to help&hellip;"></textarea></div>
+            <div class="field"><label for="mNotes">Message / Additional Notes</label><textarea class="textarea" id="mNotes" name="notes" placeholder="Anything else you'd like us to know?"></textarea></div>
+
+            <label class="check"><input type="checkbox" name="consent" /> I consent to receive email updates and newsletters from Tabitha's Home International, Inc.</label>
+
+            <button class="btn btn--primary btn--lg" type="submit">Submit Membership Form</button>
+            <p class="form-note">By submitting, you join a God-focused mission dedicated to restoration, hope, and transformation.</p>
+          </form>
+          <div class="form-success" data-success style="margin-top:1.2rem">
+            <span>Welcome to the family! Thank you for joining the mission. We'll be in touch soon with next steps.</span>
+          </div>
+        </div>
+        <div class="text-center" style="margin-top:2rem">
+          <p class="scripture">"Each of you should use whatever gift you have received to serve others."<cite>1 Peter 4:10</cite></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <div id="site-chatbot"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>

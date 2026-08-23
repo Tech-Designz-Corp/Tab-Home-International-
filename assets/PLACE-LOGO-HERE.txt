@@ -1,0 +1,16 @@
+PLACE YOUR LOGO HERE
+====================
+
+Save the Tabitha's Home International, Inc. logo in THIS folder with the
+exact file name:
+
+    Logo.png
+
+That's it. Every page (header, hero, about, footer, favicon) automatically
+uses assets/Logo.png.
+
+Until you add it, the site temporarily loads the logo from the original
+uploaded location and, if that is unavailable, shows an elegant "T" monogram
+so nothing ever looks broken.
+
+For best results use a square PNG with a transparent background.

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support the Mission | Donate to Tabitha's Home International, Inc.</title>
+  <meta name="description" content="Your gift helps provide hope, safety, dignity, and restoration for women and children in need. Give a one-time or monthly donation to Tabitha's Home International, Inc." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="assets/Logo.png" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <span class="watercolor watercolor--a" style="top:-140px; right:-80px;"></span>
+      <span class="watercolor watercolor--b" style="bottom:-120px; left:-60px;"></span>
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Donate</p>
+        <h1>Support the Mission</h1>
+        <p>Your gift helps provide hope, safety, dignity, and restoration for women and children in need.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="about__grid" style="align-items:flex-start">
+          <!-- Donation form -->
+          <div class="card reveal" style="padding:clamp(1.6rem,4vw,2.5rem)">
+            <span class="eyebrow">Give Today</span>
+            <h2 class="section-title" style="font-size:1.6rem; text-align:left; margin:.4rem 0 1.2rem">Make a Donation</h2>
+            <form class="form" data-form="donation" novalidate>
+              <div class="field">
+                <label>Donation Type</label>
+                <div class="donate-type" role="group" aria-label="Donation frequency">
+                  <button type="button" class="is-active">One-Time</button>
+                  <button type="button">Monthly</button>
+                </div>
+                <input type="hidden" name="donationType" value="One-Time" data-donate-type-value />
+              </div>
+
+              <div class="field">
+                <label>Select an Amount</label>
+                <div class="amount-grid" data-amount-grid>
+                  <div class="amount-opt" data-amount="25">$25</div>
+                  <div class="amount-opt" data-amount="50">$50</div>
+                  <div class="amount-opt" data-amount="100">$100</div>
+                  <div class="amount-opt" data-amount="250">$250</div>
+                  <div class="amount-opt" data-amount="500">$500</div>
+                  <div class="amount-opt" data-amount="custom">Custom</div>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="dAmount">Amount (USD) <span class="req">*</span></label>
+                <input class="input" id="dAmount" name="amount" type="number" min="1" step="1" required placeholder="Enter amount" data-custom-amount />
+              </div>
+
+              <div class="field">
+                <label for="dFund">Designation / Fund</label>
+                <select class="select" id="dFund" name="fund">
+                  <option>General Ministry Support</option>
+                  <option>Sponsor a Family</option>
+                  <option>Sponsor a Child</option>
+                  <option>Emergency Assistance Fund</option>
+                  <option>Community Outreach Fund</option>
+                </select>
+              </div>
+
+              <div class="form-row form-row--2">
+                <div class="field"><label for="dName">Full Name <span class="req">*</span></label><input class="input" id="dName" name="fullName" type="text" required placeholder="Your full name" /></div>
+                <div class="field"><label for="dEmail">Email <span class="req">*</span></label><input class="input" id="dEmail" name="email" type="email" required placeholder="you@email.com" /></div>
+              </div>
+              <div class="field"><label for="dPhone">Phone Number</label><input class="input" id="dPhone" name="phone" type="tel" placeholder="(000) 000-0000" /></div>
+              <div class="field"><label for="dMessage">Optional Message</label><textarea class="textarea" id="dMessage" name="message" placeholder="Share a note or dedication&hellip;"></textarea></div>
+
+              <div class="field">
+                <label>Payment Method</label>
+                <div class="pay-grid" data-pay-grid>
+                  <div class="pay-opt is-selected"><span class="dot"></span> Credit / Debit Card</div>
+                  <div class="pay-opt"><span class="dot"></span> PayPal</div>
+                  <div class="pay-opt"><span class="dot"></span> Zelle</div>
+                  <div class="pay-opt"><span class="dot"></span> Bank Transfer</div>
+                  <div class="pay-opt"><span class="dot"></span> Other Platform</div>
+                </div>
+              </div>
+
+              <label class="check"><input type="checkbox" name="updates" /> I would like to receive donation updates and newsletters.</label>
+              <label class="check"><input type="checkbox" name="anonymous" /> I would like this donation to remain anonymous.</label>
+
+              <div class="secure-note">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+                Secure payment placeholder. No real payment is processed in this demo &mdash; ready for Stripe, PayPal, Donorbox, or Givebutter integration.
+              </div>
+
+              <button class="btn btn--gold btn--lg btn--block" type="submit">Give Today and Help Restore Hope</button>
+            </form>
+            <div class="form-success" data-success style="margin-top:1.2rem">
+              <span>Thank you for your generous gift! Every gift is an act of love, compassion, and service unto God.</span>
+            </div>
+          </div>
+
+          <!-- Donation options & impact -->
+          <div class="reveal" data-delay="2">
+            <span class="eyebrow">Ways to Give</span>
+            <h2 class="section-title" style="font-size:1.6rem; text-align:left; margin:.4rem 0 1rem">Choose How You Help</h2>
+            <div class="pill-list" style="margin-bottom:1.6rem">
+              <span class="pill">One-Time Donation</span>
+              <span class="pill">Monthly Donation</span>
+              <span class="pill">Sponsor a Family</span>
+              <span class="pill">Sponsor a Child</span>
+              <span class="pill">Emergency Assistance Fund</span>
+              <span class="pill">Community Outreach Fund</span>
+              <span class="pill">General Ministry Support</span>
+            </div>
+
+            <h3 style="margin-bottom:1rem">Your Impact</h3>
+            <div class="grid grid--2">
+              <div class="impact-card"><span class="amt">$25</span><p class="card__text">Can help provide basic care items.</p></div>
+              <div class="impact-card"><span class="amt">$50</span><p class="card__text">Can support outreach assistance.</p></div>
+              <div class="impact-card"><span class="amt">$100</span><p class="card__text">Can help provide emergency family support.</p></div>
+              <div class="impact-card"><span class="amt">$250</span><p class="card__text">Can help sponsor program resources.</p></div>
+            </div>
+            <div class="impact-card" style="margin-top:1rem"><span class="amt">Monthly</span><p class="card__text">Recurring giving helps sustain the mission year-round.</p></div>
+
+            <div class="card" style="margin-top:1.6rem; background:linear-gradient(135deg,var(--sky-100),var(--sky-50))">
+              <h3 class="card__title">How Donations Help</h3>
+              <ul style="display:grid; gap:.55rem; margin-top:.4rem">
+                <li>&#10003; Provide emergency support</li>
+                <li>&#10003; Assist women and children in crisis</li>
+                <li>&#10003; Support outreach programs</li>
+                <li>&#10003; Provide basic needs</li>
+                <li>&#10003; Fund faith-based community services</li>
+                <li>&#10003; Support long-term restoration and independence</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-top:2.5rem">
+          <p class="scripture">"Every gift is an act of love, compassion, and service unto God."</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <div id="site-chatbot"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>
