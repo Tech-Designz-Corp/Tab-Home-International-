@@ -48,6 +48,12 @@ The navbar, footer, and chatbot are defined **once** in `js/main.js` and injecte
 into every page (into the `#site-header`, `#site-footer`, and `#site-chatbot`
 placeholders), so updating navigation or branding is done in a single place.
 
+## 🌐 Live site
+
+GitHub Pages serves this site from the `main` branch root:
+
+**https://techdesignz-pixel.github.io/Tab-Home-International-/**
+
 ## 🚀 Running the site
 
 Simply open `index.html` in any modern browser.
