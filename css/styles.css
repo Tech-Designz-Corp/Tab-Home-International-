@@ -960,6 +960,45 @@ button { font-family: inherit; cursor: pointer; }
   background: var(--sky-100);
   color: var(--navy-800);
 }
+.nye-clock {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin: 1.25rem 0 0.85rem;
+}
+.nye-unit {
+  min-width: 5.6rem;
+  padding: 0.85rem 0.7rem 0.7rem;
+  text-align: center;
+  border-radius: var(--radius);
+  border: 1px solid var(--gold);
+  background: linear-gradient(160deg, var(--navy-900) 0%, var(--navy-700) 48%, var(--sky-600) 100%);
+  box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+.nye-digits {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--white);
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 10px 18px rgba(8, 20, 36, 0.45);
+}
+.nye-label {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sky-200);
+}
+.nye-clock--compact .nye-unit { min-width: 4.4rem; padding: 0.65rem 0.45rem 0.5rem; }
+.nye-clock--compact .nye-digits { font-size: clamp(1.5rem, 4vw, 2.2rem); }
+@media (prefers-reduced-motion: reduce) {
+  .nye-digits { text-shadow: none; }
+}
 .live-status--live { background: #e7f6ee; color: #146c43; }
 .live-status--interrupted,
 .live-status--unavailable { background: #fde8e8; color: #8a2430; }

@@ -26,6 +26,7 @@ A static website for **Tabitha's Home International, Inc.**, a Christian ministr
 | Newsletter | `newsletter.html` |
 | Contact | `contact.html` |
 | Privacy | `privacy.html` |
+| Terms of Service | `terms.html` |
 
 ## 🗂️ Structure
 
@@ -40,13 +41,14 @@ A static website for **Tabitha's Home International, Inc.**, a Christian ministr
 ├── contact.html
 ├── live.html
 ├── privacy.html
+├── terms.html
 ├── css/
 │   └── styles.css
 ├── js/
 │   ├── main.js             # Navigation, footer, guide, forms, donation link
 │   ├── site-config.js      # Form and donation switches
 │   ├── live-config.js      # Launch status
-│   └── live.js             # Countdown and Facebook player
+│   └── live.js             # Countdown and Zoom join link
 └── assets/
     └── Logo.png            # Required brand file. See PLACE-LOGO-HERE.txt
 ```
@@ -55,7 +57,7 @@ Navigation, the footer, and the information guide are injected by `js/main.js`. 
 
 ## Live site
 
-The intended host is Vercel at `www.tabithashomeintl.org`. Member accounts and form submissions use PlanetScale. See `RELEASE.md` before publishing. Do not treat a push to `main` as a production deploy. GitHub Pages is not the production host.
+The intended host is Vercel at `www.tabithashomeintl.org`. Member accounts and form submissions use TiDB Serverless on port 4000. See `RELEASE.md` before publishing. Do not treat a push to `main` as a production deploy. GitHub Pages is not the production host.
 
 ## 🚀 Running the site
 

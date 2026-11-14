@@ -24,6 +24,7 @@ const pages = [
   "contact.html",
   "live.html",
   "privacy.html",
+  "terms.html",
   "account.html"
 ];
 
@@ -323,7 +324,7 @@ if (/(MYSQL_PASSWORD|QUERY_TOKEN)\s*[:=]\s*["'][^"']+["']/.test(apiSql + "\n" + 
 
 note("style-src 'unsafe-inline' is a recorded gap, not a claim of a strict style policy.");
 note("vercel.json sends the CSP, frame-ancestors, and Permissions-Policy. The meta CSP does not include frame-ancestors.");
-note("NOT-RUN browser journeys, screen reader, contrast measurement, Lighthouse, a real Zoom join, hosted checkout, and a PlanetScale connection.");
+note("NOT-RUN browser journeys, screen reader, contrast measurement, Lighthouse, a real Zoom join, hosted checkout, and a TiDB connection.");
 note("NOT-RUN git history secret scan and a full dependency audit. mysql2 and bcryptjs are the runtime dependencies.");
 
 console.log("PASSES");

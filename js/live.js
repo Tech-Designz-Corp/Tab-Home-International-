@@ -82,23 +82,39 @@
     add(root, "p", "live-when", "Scheduled start: " + formatStart(cfg.start));
     add(root, "p", "live-fixed", "The published clock time is 6:00 p.m. Eastern on November 14, 2026, which is 7:00 p.m. in Tobago.");
 
+    var clock = add(root, "div", "nye-clock" + (compact ? " nye-clock--compact" : ""), "");
+    clock.setAttribute("aria-hidden", "true");
+    ["Days", "Hours", "Minutes", "Seconds"].forEach(function (label) {
+      var unit = add(clock, "div", "nye-unit", "");
+      var digits = add(unit, "span", "nye-digits", "00");
+      digits.setAttribute("data-unit", label.toLowerCase());
+      add(unit, "span", "nye-label", label);
+    });
     var count = add(root, "p", "live-countdown", "");
     var startMs = new Date(cfg.start).getTime();
+    function pad(n) { return n < 10 ? "0" + n : String(n); }
     function tick() {
       if (isNaN(startMs)) {
-        count.textContent = "A countdown is not shown because the start time is invalid.";
+        clock.hidden = true;
+        count.textContent = "A countdown is not shown because the start time is invalid. Reaching zero will not mark the event live.";
         return;
       }
       var diff = startMs - Date.now();
+      var total = diff > 0 ? Math.floor(diff / 1000) : 0;
+      var days = Math.floor(total / 86400);
+      var hours = Math.floor((total % 86400) / 3600);
+      var minutes = Math.floor((total % 3600) / 60);
+      var seconds = total % 60;
+      clock.querySelectorAll(".nye-digits").forEach(function (el) {
+        var unit = el.getAttribute("data-unit");
+        var value = unit === "days" ? days : unit === "hours" ? hours : unit === "minutes" ? minutes : seconds;
+        el.textContent = pad(value);
+      });
       if (diff <= 0) {
         count.textContent = "The scheduled start time has passed. Reaching zero will not mark the event live.";
         return;
       }
-      var total = Math.floor(diff / 1000);
-      var h = Math.floor(total / 3600);
-      var m = Math.floor((total % 3600) / 60);
-      var s = total % 60;
-      count.textContent = "Time until the scheduled start: " + h + "h " + m + "m " + s + "s. Reaching zero will not mark the event live.";
+      count.textContent = "Time until the scheduled start: " + days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds. Reaching zero will not mark the event live.";
     }
     tick();
     window.setInterval(tick, 1000);

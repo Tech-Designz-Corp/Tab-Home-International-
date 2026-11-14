@@ -2,7 +2,7 @@
 
 const bcrypt = require("bcryptjs");
 const { configured, query } = require("../lib/db");
-const { send, readBody, allowsFetch, clientHash } = require("../lib/http");
+const { send, readBody, allowsFetch, clientHash, cookies, tokenHash, COOKIE } = require("../lib/http");
 const { password, limited } = require("../lib/guard");
 const { memberFromRequest, checkPassword } = require("../lib/accounts");
 
@@ -22,6 +22,7 @@ module.exports = async function handler(req, res) {
     if (!accepted) return send(res, 401, { error: "The current password was not accepted." });
     const passwordHash = await bcrypt.hash(next, 12);
     await query("UPDATE members SET password_hash = ? WHERE id = ?", [passwordHash, member.id]);
+    await query("DELETE FROM sessions WHERE member_id = ? AND token_hash <> ?", [member.id, tokenHash(cookies(req)[COOKIE])]);
     return send(res, 200, { ok: true });
   } catch (error) {
     if (error && error.status === 413) return send(res, 413, { error: "The password was not changed." });

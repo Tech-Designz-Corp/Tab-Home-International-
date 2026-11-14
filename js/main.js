@@ -108,7 +108,8 @@
       { label: "Request Assistance", href: "contact.html" },
       { label: "Newsletter", href: "newsletter.html" },
       { label: "Contact Us", href: "contact.html" },
-      { label: "Privacy", href: "privacy.html" }
+      { label: "Privacy", href: "privacy.html" },
+      { label: "Terms", href: "terms.html" }
     ].map(function (l) { return '<li><a href="' + l.href + '">' + l.label + "</a></li>"; }).join("");
 
     var explore = [
@@ -157,6 +158,7 @@
           '<div class="footer__bottom">' +
             "<span>&copy; 2026 Tabitha's Home International, Inc. All Rights Reserved.</span>" +
             '<a href="privacy.html">Privacy</a>' +
+            '<a href="terms.html">Terms</a>' +
             '<span class="footer__tag">\u201C' + BRAND.tagline + "\u201D</span>" +
           "</div>" +
         "</div>" +

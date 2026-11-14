@@ -1,10 +1,8 @@
 # Release note — November 14, 2026
 
-**Decision: no-go for production until PlanetScale, the Zoom link, and DNS are connected.**
+**Decision: no-go for production until the TiDB connection settings and DNS are connected.**
 
-The account pages, form API, and Zoom join page are in the project. Donations stay closed. Nothing in this build was deployed. Production still needs a PlanetScale database with `sql/schema.sql` applied, the PlanetScale host and password in Vercel environment variables, a `QUERY_TOKEN`, the domain `www.tabithashomeintl.org`, and a Zoom URL in `js/live-config.js` before the join button can appear.
-
-This folder is not a git repository, so there is no tested commit SHA. The check below was run against the working files.
+The account pages, form API, and Zoom join page are in the project. Donations stay closed. Nothing in this build was deployed. Production still needs a TiDB Serverless database with `sql/schema.sql` applied, the TiDB host, port `4000`, username, password, and database name `tabithas_home` in Vercel environment variables, and a separate `QUERY_TOKEN`. The domain `www.tabithashomeintl.org` still needs to point at Vercel. The Zoom join URL is already in `js/live-config.js`. Do not mark the meeting live until it is actually open.
 
 ## What is ready
 
@@ -12,8 +10,8 @@ This folder is not a git repository, so there is no tested commit SHA. The check
 - Named programs link to their own sections. The page does not claim those services have open spaces.
 - Unverified stories and the placeholder phone number are gone.
 - The launch clock is 6:00 p.m. Eastern on November 14, 2026 (7:00 p.m. in Tobago). The countdown does not switch the page to Live.
-- With no Facebook URL, the player stays off and the status says Unavailable.
-- Contact, membership, and newsletter forms are not on the page. The published email is `info@tabithashomeintl.org`.
+- The Zoom join link is connected and the status stays Scheduled. The countdown does not mark the meeting live.
+- Contact, membership, and newsletter forms post to the API. They stay unavailable until the TiDB settings exist. The published email is `info@tabithashomeintl.org`.
 - Donate does not collect card numbers and does not say a gift was completed.
 - The information guide is labeled automated. It does not say staff are online.
 - A privacy page describes this static site. It is not a security certification.
@@ -21,8 +19,8 @@ This folder is not a git repository, so there is no tested commit SHA. The check
 
 ## Still required before a full go
 
-1. Create the PlanetScale database, apply `sql/schema.sql` on the `main` branch, and copy the host, username, password, and database name into Vercel. Add a separate `QUERY_TOKEN`. Do not commit those values.
-2. Paste the public Zoom join URL into `js/live-config.js`, set `enabled` to true, and set `status` to `scheduled`. Do not mark it `live` until the meeting is actually open.
+1. Create a TiDB Serverless cluster, run `sql/schema.sql` in its SQL editor, and copy the host, port `4000`, username, password, and database name `tabithas_home` into Vercel. Add a separate `QUERY_TOKEN`. Do not commit those values.
+2. Keep `js/live-config.js` enabled, on the Zoom URL, and `scheduled`. Do not mark it `live` until the meeting is actually open.
 3. Point `www.tabithashomeintl.org` at the Vercel project. Online giving stays closed until a hosted checkout URL exists.
 4. Re-run `node scripts/check-site.js`, then deploy with Vercel only after those values exist.
 

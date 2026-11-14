@@ -1,5 +1,9 @@
--- Apply this in the PlanetScale console on the main branch.
--- PlanetScale creates the database user. Do not add a local administrator password here.
+-- TiDB creates the database user. Do not put a password in this file.
+-- Run accepts one statement. The "No database used" hint means run USE.
+-- 1. Run this line by itself: CREATE DATABASE IF NOT EXISTS tabithas_home;
+-- 2. Run this line by itself: USE tabithas_home;
+-- 3. Run each CREATE TABLE by itself. The hint should no longer say "No database used".
+-- Set MYSQL_DATABASE to tabithas_home.
 
 CREATE TABLE members (
   id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,

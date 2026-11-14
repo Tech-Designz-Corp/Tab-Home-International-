@@ -26,6 +26,7 @@
       <a href="newsletter.html">Newsletter</a>
       <a href="contact.html">Contact</a>
       <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
     </nav>
   </noscript>
   <div id="site-header"></div>
@@ -35,14 +36,18 @@
       <div class="container">
         <p class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Privacy</p>
         <h1>Privacy</h1>
-        <p>This notice matches the website as it is written now. It is not a security certification.</p>
+        <p>This notice matches the website as it is written now. It is not a security certification. Use of the site is also described in the <a href="terms.html">terms of service</a>.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container" style="max-width:800px">
         <h2>What this site is</h2>
-        <p>The public pages are served by Vercel. Member accounts and form submissions are stored in the organization's MySQL database on PlanetScale. There is a sign-in cookie for a member session. This site does not use session replay. It does not include an analytics product that records message contents. Fonts are loaded from Google Fonts. Vercel and PlanetScale keep their own hosting logs under their terms.</p>
+        <p>The public pages are served by Vercel. Member accounts and form submissions are stored in the organization's MySQL database on TiDB Serverless. The API checks TiDB's certificate against the public ISRG Root X1 certificate. There is a sign-in cookie for a member session. The cookie is HttpOnly and is sent only to this site. This site does not use session replay. It does not include an analytics product that records message contents. Fonts are loaded from Google Fonts. Vercel and TiDB keep their own hosting logs under their terms.</p>
+
+        <h2>Health information and control reports</h2>
+        <p>This website is not a medical-record system. Do not submit health details, diagnoses, treatment notes, insurance numbers, abuse narratives, or children's names. The organization can read stored form fields and member records. A signed-in member can open only the row tied to that member's session. The connection uses HTTPS. This is not end-to-end encryption.</p>
+        <p>This notice is not a HIPAA certification. The organization has not published a SOC 1 report or a SOC 2 report for this website. Vendor security descriptions from Vercel or TiDB are those companies' documents. They are not an audit of Tabitha's Home International.</p>
 
         <h2>Accounts and forms</h2>
         <p>Membership sign-up stores a name, email, phone, membership type, email-update choice, and a hash of the password. Contact and newsletter forms store the fields on those forms. The organization can read those records. The connection uses HTTPS. This is not end-to-end encryption. Do not include abuse details or children's names. The published contact address is <a href="mailto:info@tabithashomeintl.org">info@tabithashomeintl.org</a>. That address is not described here as a monitored emergency line.</p>

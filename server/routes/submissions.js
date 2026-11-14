@@ -5,6 +5,14 @@ const { configured, query } = require("../lib/db");
 const { send } = require("../lib/http");
 const { FORM_TYPES } = require("../lib/guard");
 
+function parsedPayload(value) {
+  try {
+    return JSON.parse(value);
+  } catch (error) {
+    return { unreadable: true };
+  }
+}
+
 function authorized(req) {
   const expected = process.env.QUERY_TOKEN || "";
   const header = String(req.headers.authorization || "");
@@ -32,7 +40,7 @@ module.exports = async function handler(req, res) {
         id: row.id,
         formType: row.form_type,
         createdAt: row.created_at,
-        payload: typeof row.payload === "string" ? JSON.parse(row.payload) : row.payload
+        payload: typeof row.payload === "string" ? parsedPayload(row.payload) : row.payload
       };
     }));
   } catch (error) {
