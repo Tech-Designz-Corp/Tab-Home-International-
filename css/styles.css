@@ -960,11 +960,13 @@ button { font-family: inherit; cursor: pointer; }
   background: var(--sky-100);
   color: var(--navy-800);
 }
+[data-live-root] { text-align: center; }
 .nye-clock {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.85rem;
-  margin: 1.25rem 0 0.85rem;
+  margin: 1.25rem auto 0.85rem;
 }
 .nye-unit {
   min-width: 5.6rem;

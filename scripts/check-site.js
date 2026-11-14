@@ -318,7 +318,7 @@ const apiSql = sourceFiles.filter(function (rel) { return rel.indexOf("api/") ==
 if (/query\s*\(\s*`[^`]*\$\{/.test(apiSql) || /query\s*\(\s*["'][^"']*["']\s*\+/.test(apiSql) || /execute\s*\(\s*["'][^"']*["']\s*\+/.test(apiSql) || /execute\s*\(\s*`[^`]*\$\{/.test(apiSql)) {
   fail("SQL is built with string concatenation");
 } else pass("SQL calls use placeholders");
-if (/(MYSQL_PASSWORD|QUERY_TOKEN)\s*[:=]\s*["'][^"']+["']/.test(apiSql + "\n" + read("js/site-config.js") + "\n" + read("js/live-config.js"))) {
+if (/(MYSQL_PASSWORD|QUERY_TOKEN|RESEND_API_KEY)\s*[:=]\s*["'][^"']+["']/.test(apiSql + "\n" + read("js/site-config.js") + "\n" + read("js/live-config.js"))) {
   fail("a database password or query token is written into the site");
 } else pass("database password and query token are not in the site files");
 

@@ -3,6 +3,7 @@
 const { configured, query } = require("../lib/db");
 const { send, readBody, allowsFetch, clientHash } = require("../lib/http");
 const { text, email, limited, FORM_TYPES, CONTACT_REASONS, CONTACT_PREFERENCES } = require("../lib/guard");
+const { notify } = require("../lib/mail");
 
 function newsletterPayload(body) {
   const name = text(body.name, 120);
@@ -45,6 +46,19 @@ module.exports = async function handler(req, res) {
     const payload = formType.indexOf("news") !== -1 ? newsletterPayload(body) : contactPayload(body);
     if (!payload) return send(res, 400, { error: "The message was not delivered." });
     await query("INSERT INTO submissions (form_type, payload) VALUES (?, ?)", [formType, JSON.stringify(payload)]);
+    await notify({
+      kind: formType.indexOf("news") !== -1 ? "newsletter" : "contact",
+      visitorEmail: payload.email,
+      fields: [
+        { label: "Name", value: payload.name },
+        { label: "Email", value: payload.email },
+        { label: "Phone", value: payload.phone },
+        { label: "Contact preference", value: payload.contactPreference },
+        { label: "Reason", value: payload.reason },
+        { label: "Email updates", value: payload.marketingConsent },
+        { label: "Note", value: payload.note }
+      ].filter(function (row) { return row.value; })
+    }).catch(function () {});
     return send(res, 200, { ok: true });
   } catch (error) {
     if (error && error.status === 413) return send(res, 413, { error: "The message was not delivered." });

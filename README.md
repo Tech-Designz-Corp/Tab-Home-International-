@@ -57,7 +57,7 @@ Navigation, the footer, and the information guide are injected by `js/main.js`. 
 
 ## Live site
 
-The intended host is Vercel at `www.tabithashomeintl.org`. Member accounts and form submissions use TiDB Serverless on port 4000. See `RELEASE.md` before publishing. Do not treat a push to `main` as a production deploy. GitHub Pages is not the production host.
+The intended host is Vercel at `www.tabithashomeintl.org`. Member accounts and form submissions use TiDB Serverless on port 4000. Saved forms and new accounts can send an automated notice through Resend when `RESEND_API_KEY` is set. See `RELEASE.md` before publishing. Do not treat a push to `main` as a production deploy. GitHub Pages is not the production host.
 
 ## 🚀 Running the site
 

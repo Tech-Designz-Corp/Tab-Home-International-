@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/index.js": {
-      "includeFiles": "server/lib/isrgrootx1.pem"
+      "includeFiles": "{server/lib/isrgrootx1.pem,assets/Logo.png}"
     }
   },
   "rewrites": [

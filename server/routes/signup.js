@@ -5,6 +5,7 @@ const { configured, query } = require("../lib/db");
 const { send, readBody, allowsFetch, clientHash, sessionCookie } = require("../lib/http");
 const { text, email, password, limited, MEMBERSHIP_TYPES } = require("../lib/guard");
 const { startSession } = require("../lib/accounts");
+const { notify } = require("../lib/mail");
 
 module.exports = async function handler(req, res) {
   if (req.method !== "POST") return send(res, 405, { error: "Method not allowed" });
@@ -29,6 +30,17 @@ module.exports = async function handler(req, res) {
       [address, passwordHash, name, phone, membershipType, consent]
     );
     const token = await startSession(result.insertId);
+    await notify({
+      kind: "member",
+      visitorEmail: address,
+      fields: [
+        { label: "Name", value: name },
+        { label: "Email", value: address },
+        { label: "Phone", value: phone },
+        { label: "Membership", value: membershipType },
+        { label: "Email updates", value: consent ? "yes" : "no" }
+      ].filter(function (row) { return row.value; })
+    }).catch(function () {});
     return send(res, 201, { ok: true }, { "Set-Cookie": sessionCookie(token, req) });
   } catch (error) {
     if (error && error.status === 413) return send(res, 413, { error: "The account was not created." });

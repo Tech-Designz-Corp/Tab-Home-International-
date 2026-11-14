@@ -379,7 +379,7 @@
 
   function successText(slot) {
     if (slot === "newsletter" || slot === "footer-news" || slot === "home-news") {
-      return "Request received. A subscription is not complete until the email provider confirms it.";
+      return "Request received. A notice may be emailed. This is not a recurring newsletter, and it does not mean a staff member has contacted you.";
     }
     if (slot === "membership") {
       return "Request received. This does not mean membership is active or that a staff member has contacted you.";
