@@ -1,0 +1,7 @@
+The site logo is assets/Logo.png.
+
+It is a crop of the supplied screenshot: the black bars and extra white
+margin are removed, and the lettering is unchanged. The uncropped
+screenshot is kept as assets/logo-source.jpg.
+
+The same PNG is the favicon. Do not replace it with a redrawn mark.

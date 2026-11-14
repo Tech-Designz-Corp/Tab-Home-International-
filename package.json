@@ -1,0 +1,14 @@
+{
+  "name": "tabithas-home",
+  "private": true,
+  "description": "Tabitha's Home International website and account API",
+  "scripts": {
+    "check": "node scripts/check-site.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.21.2",
+    "mysql2": "^3.11.5"
+  }
+}

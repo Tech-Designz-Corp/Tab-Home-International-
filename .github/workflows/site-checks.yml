@@ -1,0 +1,54 @@
+# Tests run on pull requests and on main.
+# A Vercel preview is the staging deploy. It runs only when the repository
+# has VERCEL_TOKEN, VERCEL_ORG_ID, and VERCEL_PROJECT_ID configured.
+# Production is a separate Vercel promotion. This workflow does not deploy GitHub Pages.
+name: Site checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Static site checks
+        run: node scripts/check-site.js
+      - name: Unit tests
+        run: node --test
+
+  staging:
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Deploy a Vercel preview
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          if [ -z "$VERCEL_TOKEN" ] || [ -z "$VERCEL_ORG_ID" ] || [ -z "$VERCEL_PROJECT_ID" ]; then
+            echo "Staging deploy skipped. Add VERCEL_TOKEN, VERCEL_ORG_ID, and VERCEL_PROJECT_ID to deploy a preview."
+            exit 0
+          fi
+          npx vercel pull --yes --environment=preview --token="$VERCEL_TOKEN"
+          npx vercel deploy --token="$VERCEL_TOKEN"
