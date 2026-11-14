@@ -113,30 +113,55 @@ function copyFor(kind) {
   };
 }
 
+async function deliverBatch(messages) {
+  const key = process.env.RESEND_API_KEY;
+  if (!key || !messages.length) return { sent: false, reason: "not-configured" };
+  const attachments = logoAttachment();
+  const response = await fetch("https://api.resend.com/emails/batch", {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer " + key,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(messages.map(function (message) {
+      return {
+        from: fromAddress(),
+        to: message.to,
+        subject: message.subject,
+        html: message.html,
+        reply_to: message.replyTo || undefined,
+        attachments: attachments
+      };
+    }))
+  });
+  if (!response.ok) {
+    console.error("resend", response.status);
+    return { sent: false, reason: "provider" };
+  }
+  return { sent: true };
+}
+
 async function notify(options) {
   const copy = copyFor(options.kind);
   const rows = options.fields || [];
-  const tasks = [
-    deliver({
+  const messages = [
+    {
       to: orgRecipients(),
       replyTo: options.visitorEmail,
       subject: copy.orgSubject,
       html: letter(copy.orgSubject, "A website form saved this information.", rows)
-    })
+    }
   ];
   if (options.visitorEmail) {
-    tasks.push(deliver({
+    messages.push({
       to: [options.visitorEmail],
       subject: copy.visitorSubject,
       html: letter(copy.visitorSubject, copy.visitorIntro, rows.filter(function (row) {
         return row.label !== "Note";
       }))
-    }));
+    });
   }
-  const results = await Promise.all(tasks.map(function (task) {
-    return task.catch(function () { return { sent: false, reason: "provider" }; });
-  }));
-  return results;
+  return deliverBatch(messages).catch(function () { return { sent: false, reason: "provider" }; });
 }
 
 module.exports = { escapeHtml: escapeHtml, letter: letter, deliver: deliver, notify: notify };

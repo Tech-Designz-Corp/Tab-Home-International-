@@ -11,6 +11,19 @@ test("the letter escapes text typed into a form", function () {
   assert.match(html, /Tabitha's Home International/);
 });
 
+test("a notice batch is skipped when Resend is not configured", async function () {
+  const previous = process.env.RESEND_API_KEY;
+  delete process.env.RESEND_API_KEY;
+  const result = await mail.notify({
+    kind: "newsletter",
+    visitorEmail: "person@example.com",
+    fields: [{ label: "Email", value: "person@example.com" }]
+  });
+  if (previous) process.env.RESEND_API_KEY = previous;
+  assert.equal(result.sent, false);
+  assert.equal(result.reason, "not-configured");
+});
+
 test("mail is skipped when Resend is not configured", async function () {
   const previous = process.env.RESEND_API_KEY;
   delete process.env.RESEND_API_KEY;

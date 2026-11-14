@@ -400,7 +400,9 @@
       box.value = "yes";
       box.required = true;
       consent.appendChild(box);
-      consent.appendChild(document.createTextNode(" I agree to receive email updates. This box is separate from any other request."));
+      consent.appendChild(document.createTextNode(slot === "footer-news"
+        ? " I agree to receive email updates."
+        : " I agree to receive email updates. This box is separate from any other request."));
       form.appendChild(consent);
       return;
     }
@@ -526,15 +528,17 @@
       status.tabIndex = -1;
       form.appendChild(status);
 
-      var mail = document.createElement("p");
-      mail.className = "form-note";
-      mail.appendChild(document.createTextNode("You can also email "));
-      var mailLink = document.createElement("a");
-      mailLink.href = "mailto:" + BRAND.email;
-      mailLink.textContent = BRAND.email;
-      mail.appendChild(mailLink);
-      mail.appendChild(document.createTextNode("."));
-      form.appendChild(mail);
+      if (name !== "footer-news") {
+        var mail = document.createElement("p");
+        mail.className = "form-note";
+        mail.appendChild(document.createTextNode("You can also email "));
+        var mailLink = document.createElement("a");
+        mailLink.href = "mailto:" + BRAND.email;
+        mailLink.textContent = BRAND.email;
+        mail.appendChild(mailLink);
+        mail.appendChild(document.createTextNode("."));
+        form.appendChild(mail);
+      }
 
       slot.textContent = "";
       slot.appendChild(form);
